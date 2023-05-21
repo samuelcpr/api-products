@@ -1,10 +1,13 @@
 import express, { request, response } from "express";
+import swaggerUi from "swagger-ui-express"
 
 import {router} from "./routes";
 
 const app = express();
 
 app.use(express.json());
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup())
 
 
 app.get("/terms", (request, response)=> {
